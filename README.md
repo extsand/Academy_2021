@@ -6,10 +6,10 @@
 
 
 - Add task_1 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/task_1.sh
-    <br>-include command with file and directories 
+    <br>-include commands with file and directories 
 
 
 - Add task_2 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/task_2.sh
-    <br>-include command with user, group, file permissions
+    <br>-include commands with user, group, file permissions
 
 
