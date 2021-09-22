@@ -13,7 +13,7 @@ man appname     # manual
 help            # shell help info
 less            # page to page output
 info            # include information about os and more
-finger          # similar on app
+finger          # similar on who app
 ls -la          # list file
 ss              # socker list in system    
 # ========================
@@ -42,6 +42,7 @@ ls -l               # only visible file - file table
 ls -a               # all file list
 ls -la              # all file - file table
 ll                  # shortcut for ls -la
+alias               # make shortcut
 
 
 #Create a subdirectories in the home dir
@@ -68,7 +69,11 @@ sudo history > labwork2
 ln labwork2 link_hard_labwork2
 ln -s labwork2 link_soft_labwork2
 #hardlink - include all parent file. If we delete parent file - we still have body of parent file.
+# arrow to iNode in memory sector
 #softlink - it just link
+
+ls -i # show iNodes
+ll -i
 
 #remove
 mv link_hard_labwork2 hard_lnk_labwork2
@@ -104,7 +109,7 @@ wc -l filename
 # more about
 # https://www.geeksforgeeks.org/find-command-in-linux-with-examples/
 # ?????
-# sudo find /etc ?????
+sudo find /etc -name 'host*'
 # ????????
 sudo find /etc | grep 'host'
 
@@ -130,6 +135,13 @@ ll -R /etc
 # directory.
 
 ls -1t | tail -5
+ls -ltu | tail -5
+
+# time=5
+# find /adr/ -name 'filename.txt'-cmin $time
+find /home/Share/ -name '*' -cmin 100
+
+
 
 
 
