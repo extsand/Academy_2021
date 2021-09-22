@@ -42,7 +42,8 @@ ls -l               # only visible file - file table
 ls -a               # all file list
 ls -la              # all file - file table
 ll                  # shortcut for ls -la
-alias               # make shortcut
+
+alias               # make shortcut - see MAN
 
 
 #Create a subdirectories in the home dir
@@ -70,7 +71,7 @@ ln labwork2 link_hard_labwork2
 ln -s labwork2 link_soft_labwork2
 #hardlink - include all parent file. If we delete parent file - we still have body of parent file.
 # arrow to iNode in memory sector
-#softlink - it just link
+# softlink - it just link
 
 ls -i # show iNodes
 ll -i
