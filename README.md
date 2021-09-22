@@ -10,6 +10,6 @@
 
 
 - Add task_2 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/task_2.sh
-    <br>-include commands with user, group, file permissions
+    <br>-include commands with user, group, file permissions.
 
 
