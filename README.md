@@ -13,3 +13,17 @@
     <br>-include commands with user, group, file permissions.
 
 
+<<<<<<< HEAD
+=======
+
+### Linux Base
+
+- Add task_1 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/task_1.sh
+    <br>-include commands with file and directories 
+
+
+- Add task_2 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/task_2.sh
+    <br>-include commands with user, group, file permissions
+
+
+>>>>>>> eff6d06 (new md for main)
