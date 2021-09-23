@@ -234,4 +234,4 @@ ssh –L 1234:192.123.123.2:2245 username@server.com              # set local fo
 ssh -R remote_port:localhost:local_port ssh_server_hostname     # set remove forwarding
 
 # 5*. Intercept (capture) traffic (tcpdump, wireshark) while authorizing the remote client on the
-# server using ssh, telnet, rlogin. Analyze the result.
+# server using ssh, telnet, rlogin. Analyze the result . 
