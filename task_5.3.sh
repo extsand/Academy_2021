@@ -135,19 +135,61 @@ renice -n $value -p $PID
 ## Low priority - low perfomance
 
 
+########### ======= QUESTIONS =================
+# It's right way?
 # 15. Can I change the priority of a process using the top command? If so, how?
+## Top then press key 'r' enter PID and set renice
+## More option - press key 'h'
+top
+
 
 
 
 # 16. Examine the kill command. How to send with the kill command
 # process control signal? Give an example of commonly used signals.
+## we can kill app process
+kill $PID 
+kill -l #list of possible type of kill
+kill -9 $PID
+kill $PID1 $PID2 $PID3
+
+killall -l $N+$PID #multiple kill
+
+
+########### ======= QUESTIONS =================
+# NEED EXAMPLE
 # 17. Commands jobs, fg, bg, nohup. What are they for? Use the sleep, yes command to
 # demonstrate the process control mechanism with fg, bg.
+# more https://habr.com/ru/post/112539/
+jobs # list of 
+fg #foreground
+bg #background
+nohup #grab SIGHUP and redirect to nohup.out
+
+
 
 # Part2
 # 1. Check the implementability of the most frequently used OPENSSH commands in the MS
+# more Linux https://www.ssh.com/academy/ssh/command
+## for Linux
+#   ssh-keygen
+#   ssh-copy-id
+#   ssh-add
+#   scp
+#   sftp
+#   sshd
+#   ssh username@192.192.100.1 
+
+
 # Windows operating system. (Description of the expected result of the commands +
 # screenshots: command – result should be presented)
+## Sometimes SSH not include in Windows. 
+## for install SSH in Windows 
+## 1.Donwload OpenSSH from offrepo  https://github.com/PowerShell/Win32-OpenSSH/releases
+## 2.Create folder “C:\Program Files\OpenSSH”
+## 3.Copy all OpenSSH app files to folder
+
+
 # 2. Implement basic SSH settings to increase the security of the client-server connection (at least
 # 3. List the options for choosing keys for encryption in SSH. Implement 3 of them.
 # 4. Implement port forwarding for the SSH client from the host machine to the guest Linux
