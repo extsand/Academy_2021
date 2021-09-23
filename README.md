@@ -20,7 +20,5 @@
 - Add task_1 - see in branch
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/networking_task1.sh
     <br>- processing... ![loading](https://i.pinimg.com/originals/49/23/29/492329d446c422b0483677d0318ab4fa.gif)
-    
-    ![loading](https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif)
 
     
