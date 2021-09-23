@@ -170,7 +170,10 @@ nohup #grab SIGHUP and redirect to nohup.out
 
 # Part2
 # 1. Check the implementability of the most frequently used OPENSSH commands in the MS
+# Windows operating system. (Description of the expected result of the commands +
+# screenshots: command – result should be presented)
 # more Linux https://www.ssh.com/academy/ssh/command
+# more https://fred151.net/site/2018/09/23/how-to-install-openssh-on-windows-7-10/
 ## for Linux
 #   ssh-keygen
 #   ssh-copy-id
@@ -179,16 +182,22 @@ nohup #grab SIGHUP and redirect to nohup.out
 #   sftp
 #   sshd
 #   ssh username@192.192.100.1 
-
-
-# Windows operating system. (Description of the expected result of the commands +
-# screenshots: command – result should be presented)
+## For Windows
 ## Sometimes SSH not include in Windows. 
-## for install SSH in Windows 
-## 1.Donwload OpenSSH from offrepo  https://github.com/PowerShell/Win32-OpenSSH/releases
-## 2.Create folder “C:\Program Files\OpenSSH”
-## 3.Copy all OpenSSH app files to this folder
-## 4
+#   for install SSH in Windows 
+#   1.Donwload OpenSSH from offrepo  https://github.com/PowerShell/Win32-OpenSSH/releases
+#   2.Create folder “C:\Program Files\OpenSSH”
+#   3.Copy all OpenSSH app files to this folder
+#   4.Start PowerShell from "C:\Program Files\OpenSSH"
+#   5.Write .\ssh username@192.192.93.23 
+#   6.Enjoy
+## Note for PowerShell
+### cls
+### clear
+### ls 
+
+
+
 
 
 # 2. Implement basic SSH settings to increase the security of the client-server connection (at least
