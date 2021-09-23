@@ -1,26 +1,45 @@
 #!/bin/bash
 
 #Questions:
-# chattr - example of usage
+# chattr - example of usage ?
 #(ACLs) - Access Control List
+# ps
 
 
 # Part1
 # 1. How many states could has a process in Linux?
-# Type of process
+# # Type of process
 # Foreground process - interactive proc. Control through a terminal sessions
 # Background process - non interactive. Automatic process. Example - part of system
-# Type of states
 
+# # Type of states
+# Created-ready-waiting-running-terminated
 
 
 # 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current
 # process.
+# more https://www.howtoforge.com/linux-pstree-command/?__cf_chl_captcha_tk__=pmd_kcZtIO34SkCWcB4qgi9AG9Ykfo.CELCnX8bZtMe0Lmc-1632395539-0-gqNtZGzNArujcnBszQi9
+
+pstree
+pstree -h $PID
+pstree -H $PID
+
 # 3. What is a proc file system?
+# # It's interface between Linux Kernel and user
+# # in proc we can get any information about Linux Kernel
+# more https://losst.ru/fajlovaya-sistema-proc-v-linux
+cat /proc/$innerfolder_or_file
+
+
 # 4. Print information about the processor (its type, supported technologies, etc.).
+cat /proc/cpuinfo
+
+
 # 5. Use the ps command to get information about the process. The information should be as
 # follows: the owner of the process, the arguments with which the process was launched for
 # execution, the group owner of this process, etc.
+
+
 # 6. How to define kernel processes and user processes?
 # 7. Print the list of processes to the terminal. Briefly describe the statuses of the processes.
 # What condition are they in, or can they be arriving in?
