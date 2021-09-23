@@ -187,7 +187,8 @@ nohup #grab SIGHUP and redirect to nohup.out
 ## for install SSH in Windows 
 ## 1.Donwload OpenSSH from offrepo  https://github.com/PowerShell/Win32-OpenSSH/releases
 ## 2.Create folder “C:\Program Files\OpenSSH”
-## 3.Copy all OpenSSH app files to folder
+## 3.Copy all OpenSSH app files to this folder
+## 4
 
 
 # 2. Implement basic SSH settings to increase the security of the client-server connection (at least
