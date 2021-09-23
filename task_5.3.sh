@@ -8,12 +8,16 @@
 
 # Part1
 # 1. How many states could has a process in Linux?
-# # Type of process
-# Foreground process - interactive proc. Control through a terminal sessions
-# Background process - non interactive. Automatic process. Example - part of system
+## Type of process
+### Foreground process - interactive proc. Control through a terminal sessions
+### Background process - non interactive. Automatic process. Example - part of system
 
 # # Type of states
-# Created-ready-waiting-running-terminated
+### -created
+### -ready
+### -waiting
+### -running
+### -terminated
 
 
 # 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current
@@ -25,8 +29,8 @@ pstree -h $PID
 pstree -H $PID
 
 # 3. What is a proc file system?
-# # It's interface between Linux Kernel and user
-# # in proc we can get any information about Linux Kernel
+## It's interface between Linux Kernel and user
+## in proc we can get any information about Linux Kernel
 # more https://losst.ru/fajlovaya-sistema-proc-v-linux
 cat /proc/$innerfolder_or_file
 
@@ -38,15 +42,65 @@ cat /proc/cpuinfo
 # 5. Use the ps command to get information about the process. The information should be as
 # follows: the owner of the process, the arguments with which the process was launched for
 # execution, the group owner of this process, etc.
+ps aux
+ps aux | grep $app_name
 
 
 # 6. How to define kernel processes and user processes?
-# 7. Print the list of processes to the terminal. Briefly describe the statuses of the processes.
-# What condition are they in, or can they be arriving in?
+## more https://andreyex.ru/operacionnaya-sistema-linux/komanda-ps-v-linux/
+## https://www.cyberciti.biz/faq/show-all-running-processes-in-linux/
+ps aux | head
+# aux
+## a = show processes for all users
+## u = display the process's user/owner
+## x = also show processes not attached to a terminal
+
+
+
+# 7. Print the list of processes to the terminal. 
+# Briefly describe the statuses of the processes.
+# more http://www.opennet.ru/docs/RUS/lnx_process/
+top
+htop
+## S - STAT - Status
+### R - процесс выполняется или готов к выполнению (состояние готовности)
+### D - процесс в "беспробудном сне" - ожидает дискового ввода/вывода
+### T - процесс остановлен (stopped) или трассируется отладчиком
+### S - процесс в состоянии ожидания (sleeping)
+### Z - процесс-зобми
+### < - процесс с отрицательным значением nice
+### N - процесс с положительным значением nice (о команде nice мы поговорим позже)
+
+
 # 8. Display only the processes of a specific user.
-# 9. What utilities can be used to analyze existing running tasks (by analyzing the help for the ps
-# command)?
+top | grep $username
+## top filterind
+top # then Shift+U then enter username 
+
+# 9. What utilities can be used to analyze existing running tasks 
+#(by analyzing the help for the ps command)?
+man ps
+ps | grep $some_app
+
+
 # 10. What information does top command display?
+# more https://www.maketecheasier.com/linux-top-explained/
+
+
+## PID - process ID
+## User - username
+## PRI - priority
+## NI - nice value -20 < x < 19
+## VIRT - virtual memory size 
+## RES - resident memory size
+## SHARE - shared memory size
+## STAT - status of process
+## %CPU - cpu time used by the process sinse last update
+## %MEM - physical memory used
+## TIME - total CPU time used by the task in 100 of a second
+## COMMAND - command name / command line
+
+
 # 12. Display the processes of the specific user using the top command.
 # 12. What interactive commands can be used to control the top command? Give a couple of
 # examples.
