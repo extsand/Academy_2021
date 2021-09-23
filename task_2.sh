@@ -1,6 +1,7 @@
+#!/bin/bash
 # sudo cat /etc/passwd
 #s udo cat /etc/group
-# pseud ouser 0 - 100 id
+# pseudouser 10 - 100 id - system process which look like user
 # real user 1000 - ....
 
 # UID ranges
@@ -129,8 +130,15 @@ chmod 744 $filename
 #an example of files and directories with these attributes.
 chmod 1777 $filename
 chmod o+t $filename
+chmod 744 $filename # clear permissions
 # Sticky bit - all can work with file but only owner can delete this file
+#SUID bit - sudo user id bit
+chmod u+s $filename
+chmod u-s $filename
+
+
 
 # What file attributes should be present in the command script?
+# what is mean?
 #!/bin/bash
 # ????????????????????????
