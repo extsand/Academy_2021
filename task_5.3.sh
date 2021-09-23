@@ -211,7 +211,27 @@ nohup #grab SIGHUP and redirect to nohup.out
 
 
 # 3. List the options for choosing keys for encryption in SSH. Implement 3 of them.
+#symmetric algorithm
+#asymetric algorithm
+
+ssh-keygen -t rsa
+ssh-keygen -t ed25519 #more secure
+
+ssh-keygen -t dsa
+ssh-keygen -t ecdsa 
+ssh-keygen -t dsecdsa-ska
+ssh-keygen -t dsa
+
+
+########### ======= QUESTIONS =================
+# NEED EXAMPLE
 # 4. Implement port forwarding for the SSH client from the host machine to the guest Linux
 # virtual machine behind NAT.
+# more https://phoenixnap.com/kb/ssh-port-forwarding
+
+# all trafic for 1234 will forward to 2245
+ssh –L 1234:192.123.123.2:2245 username@server.com              # set local forwarding
+ssh -R remote_port:localhost:local_port ssh_server_hostname     # set remove forwarding
+
 # 5*. Intercept (capture) traffic (tcpdump, wireshark) while authorizing the remote client on the
 # server using ssh, telnet, rlogin. Analyze the result.
