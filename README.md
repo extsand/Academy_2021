@@ -14,12 +14,11 @@
 
 - Add task_5.3 - see in branch 
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/1.linux.base/task_5.3.sh
-    <br>- include commands with top, htop, pstree, ps, ps aux, nice, unice, pskill, ssh
+    <br>- include commands with top, htop, pstree, ps, ps aux, nice, unice, pskill, ssh.
 
 ### Linux Networking
 - Add task_1 - see in branch
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/networking_task1.sh
     <br>- processing...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
-
-    
+   
