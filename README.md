@@ -15,4 +15,4 @@
 
 ### Linux Networking
 - Add task_1 - see in branch https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/networking_task1.sh
-    <br>-processing...
+    <br>-processing... ![hippo](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif)
