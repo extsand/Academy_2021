@@ -195,8 +195,8 @@ nohup #grab SIGHUP and redirect to nohup.out
 ### cls
 ### clear
 ### ls 
-
-
+# SCREENSHOT HERE 
+# https://github.com/extsand/Academy_2021/blob/linux_1/img/Linux-1_Task_5.3_P2.1-Powershell.jpg
 
 
 
