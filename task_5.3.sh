@@ -7,6 +7,11 @@
 
 # Part1
 # 1. How many states could has a process in Linux?
+# Type of process
+# Foreground process - interactive proc. Control through a terminal sessions
+# Background process - non interactive. Automatic process. Example - part of system
+# Type of states
+
 
 
 # 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current
