@@ -201,6 +201,15 @@ nohup #grab SIGHUP and redirect to nohup.out
 
 
 # 2. Implement basic SSH settings to increase the security of the client-server connection (at least
+## go to 
+# nano /etc/ssh/sshd_config
+# port 2222                  # change def port
+# PermitRootLogin_no         # disabe ssh login
+# AllowUsers $username       # Add only trusted user to ssh
+## Also make IPTABLES RULES 
+## And use ufw allow $num__of_port
+
+
 # 3. List the options for choosing keys for encryption in SSH. Implement 3 of them.
 # 4. Implement port forwarding for the SSH client from the host machine to the guest Linux
 # virtual machine behind NAT.
