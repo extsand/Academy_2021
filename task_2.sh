@@ -1,7 +1,7 @@
 #!/bin/bash
 # sudo cat /etc/passwd
 #s udo cat /etc/group
-# pseudouser 10 - 100 id - system process which look like user
+# pseudouser 10 - 100 id - system utilites which look like user
 # real user 1000 - ....
 
 # UID ranges
@@ -62,6 +62,10 @@ passwd --status $username
 chage -l $usermane
 
 # HOW TO USE IN REAL PROJECTS?
+
+#(ACLs) - Access Control List for flex control 
+https://help.ubuntu.ru/wiki/access_control_list
+
 # How to remove a user's password and provide him with a password-free
 # login for subsequent password change?
 # https://www.cyberciti.biz/faq/linux-delete-user-password/
