@@ -6,6 +6,7 @@ echo 'Networking tasks'
 # more http://rus-linux.net/MyLDP/vm/VirtualBox-networking.html
 # tips and tricks
 # more https://ubuntugeeks.com/questions/23410/cannot-find-device-eth0
+# more https://forum.ubuntu.ru/index.php?topic=255114.0 ----- Important
 #
 #|Itnernet|
 # ^|
@@ -55,6 +56,6 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	network 192.168.59.0
 	broadcast 192.168.59.255
-	
+
 # Algorius Net Viewer - for network images
 # see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/Networking_Task1_1.jpg
