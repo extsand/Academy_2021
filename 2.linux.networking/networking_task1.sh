@@ -53,3 +53,5 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	network 192.168.59.0
 	broadcast 192.168.59.255
+
+# see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/Networking_Task1_1.jpg
