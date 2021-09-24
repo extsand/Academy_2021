@@ -20,6 +20,7 @@ sudo lshw -C network #Check network devices
 sudo nano /etc/network/interfaces # create network
 #====================================
 eth0 # NAT
+iface eth0 inet dhcp
 #configure Host
 #WorkNetwork
 auto eth1
@@ -47,6 +48,7 @@ iface eth1 inet static
 
 #================================
 # configure VM2
+# Adapter to VM1
 auto eth0
 iface eth0 inet static
 	address 192.168.59.2

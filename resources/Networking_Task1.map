@@ -1,0 +1,111 @@
+<Map user="Aleksandr" pc="ERIANA">
+  <Devices>
+    <Device id="1" name="Host" address="192.168.0.6" map="" type-id="Workstation" layer="2" x="144" y="328" scale="2.29">
+      <Description><![CDATA[sudo nano /etc/network/interfaces
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 192.168.58.1
+	netmask 255.255.255.0
+	network 192.168.58.0
+	broadcast 192.168.58.255]]></Description>
+    </Device>
+    <Device id="2" name="Ubuntu_2" address="192.168.59.2" map="" type-id="Workstation" layer="2" x="1212" y="328" scale="2.29">
+      <Description><![CDATA[sudo nano /etc/network/interfaces
+auto eth0
+iface eth0 inet static
+	address 192.168.59.2
+	netmask 255.255.255.0
+	network 192.168.59.0
+	broadcast 192.168.59.255]]></Description>
+    </Device>
+    <Device id="3" name="Ubuntu_1" address="192.168.58.1" map="" type-id="Workstation" layer="2" x="672" y="324" scale="2.29">
+      <Description><![CDATA[sudo nano /etc/network/interfaces
+
+auto eth0
+iface eth0 inet static
+	address 192.168.58.2
+	netmask 255.255.255.0
+	network 192.168.58.0
+	broadcast 192.168.58.255
+
+auto eth1
+iface eth1 inet static
+	address 192.168.59.1
+	netmask 255.255.255.0
+	network 192.168.59.0
+	broadcast 192.168.59.255]]></Description>
+    </Device>
+    <Device id="4" name="Internet" map="" type-id="Cloud" layer="2" x="28" y="120" scale="2.28" />
+  </Devices>
+  <Lines>
+    <Line nodes="1256 376 768 372" width="3" />
+    <Line nodes="696 372 224 376" width="3" />
+    <Line nodes="160 368 160 196" width="3" />
+    <Line nodes="1256 580 1256 644 986 644 988 580" color="DodgerBlue" width="3" />
+    <Line nodes="724 576 724 642 380 644" color="DodgerBlue" width="3" />
+    <Line nodes="380 576 380 644" color="DodgerBlue" width="3" />
+    <Line nodes="340 580 340 645 124 644 124 540" color="DodgerBlue" width="3" />
+    <Line nodes="104 490 104 216" color="DodgerBlue" width="3" />
+  </Lines>
+  <Textes>
+    <Text id="1" layer="1" x="1180" y="442" width="32" height="8" color="White">
+      <Description><![CDATA[sudo nano /etc/network/interfaces
+auto eth0
+iface eth0 inet static
+	address 192.168.59.2
+	netmask 255.255.255.0
+	network 192.168.59.0
+	broadcast 192.168.59.255]]></Description>
+    </Text>
+    <Text id="2" layer="1" x="624" y="462" width="32" height="8" color="White">
+      <Description><![CDATA[auto eth0
+iface eth0 inet static
+	address 192.168.58.2
+	netmask 255.255.255.0
+	network 192.168.58.0
+	broadcast 192.168.58.255]]></Description>
+    </Text>
+    <Text id="3" layer="1" x="892" y="462" width="32" height="8" color="White">
+      <Description><![CDATA[auto eth1
+iface eth1 inet static
+	address 192.168.59.1
+	netmask 255.255.255.0
+	network 192.168.59.0
+	broadcast 192.168.59.255]]></Description>
+    </Text>
+    <Text id="4" layer="1" x="296" y="462" width="32" height="8" color="White">
+      <Description><![CDATA[auto eth0
+iface eth0 inet static
+	address 192.168.58.2
+	netmask 255.255.255.0
+	network 192.168.58.0
+	broadcast 192.168.58.255]]></Description>
+    </Text>
+    <Text id="5" layer="1" x="72" y="492" width="32" height="8" color="White" padding-left="5" padding-right="5" padding-top="5" padding-bottom="5" shadow="10" vertical-align="middle">
+      <Description><![CDATA[auto eth0
+iface eth0 inet dhcp]]></Description>
+    </Text>
+    <Text id="6" layer="3" x="108" y="88" width="32" height="8" color="White">
+      <Description><![CDATA[INTERNET]]></Description>
+    </Text>
+    <Text id="7" layer="3" x="195" y="296" width="32" height="8" color="White">
+      <Description><![CDATA[HOST]]></Description>
+    </Text>
+    <Text id="8" layer="3" x="720" y="296" width="32" height="8" color="White">
+      <Description><![CDATA[UBUNTU-1]]></Description>
+    </Text>
+    <Text id="9" layer="3" x="1240" y="296" width="32" height="8" color="White">
+      <Description><![CDATA[UBUNTU-2]]></Description>
+    </Text>
+  </Textes>
+  <Layers>
+    <Layer id="3" name="Описание устройство" />
+    <Layer id="2" name="Устройства" />
+    <Layer id="1" name="Описание" />
+    <Layer id="0" name="Слой 1" />
+  </Layers>
+</Map>
