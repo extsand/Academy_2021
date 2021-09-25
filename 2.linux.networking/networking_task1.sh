@@ -61,6 +61,32 @@ iface eth0 inet static
 # see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/Networking_Task1_1.jpg
 
 
+sudo nano /etc/network/interfaces
+====== Host VM ======
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.0.5.1
+	netmask 255.255.255.0
+	network 10.0.5.0
+	broadcast 10.0.5.255
+	dns-nameserver 8.8.8.8
+
+====== Client VM ======
+auto eth0
+iface eth0 inet static
+	address 10.0.5.2
+	netmask 255.255.255.0
+	network 10.0.5.0
+	broadcast 10.0.5.255
+	gateway 10.0.5.1
+	dns-nameserver 8.8.8.8
+
+
+# Set 
+
 
 
 
