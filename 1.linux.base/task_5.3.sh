@@ -22,6 +22,8 @@
 
 # 2. Examine the pstree command. Make output (highlight) the chain (ancestors) of the current
 # process.
+
+#more https://andreyex.ru/operacionnaya-sistema-linux/komanda-pstree-v-linux/
 # more https://www.howtoforge.com/linux-pstree-command/?__cf_chl_captcha_tk__=pmd_kcZtIO34SkCWcB4qgi9AG9Ykfo.CELCnX8bZtMe0Lmc-1632395539-0-gqNtZGzNArujcnBszQi9
 
 pstree

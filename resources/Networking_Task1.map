@@ -78,8 +78,8 @@ iface eth1 inet static
 	broadcast 192.168.59.255]]></Description>
     </Text>
     <Text id="4" layer="1" x="296" y="462" width="32" height="8" color="White">
-      <Description><![CDATA[auto eth0
-iface eth0 inet static
+      <Description><![CDATA[auto eth1
+iface eth1 inet static
 	address 192.168.58.2
 	netmask 255.255.255.0
 	network 192.168.58.0

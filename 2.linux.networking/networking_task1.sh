@@ -59,3 +59,23 @@ iface eth0 inet static
 
 # Algorius Net Viewer - for network images
 # see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/Networking_Task1_1.jpg
+
+
+
+
+
+2. VM2 has one interface (internal), VM1 has 2 interfaces (NAT and internal). Configure all network
+interfaces in order to make VM2 has an access to the Internet (iptables, forward, masquerade).
+
+echo 'net.ipv4.ip_forward = 1' >>/etc/sysctl.conf; sysctl -p
+iptables -t nat -A POSTROUTING -s 192.168.0.0/24 ! -d 192.168.0.0/24 -j MASQUERADE
+iptables -t mangle -A FORWARD -p tcp -m tcp --tcp-flags RST,SYN SYN -j TCPMSS --clamp-mss-to-pmtu
+iptables-save >/etc/iptables.conf
+
+
+3. Check the route from VM2 to Host.
+4. Check the access to the Internet, (just ping, for example, 8.8.8.8).
+5. Determine, which resource has an IP address 8.8.8.8.
+6. Determine, which IP address belongs to resource epam.com.
+7. Determine the default gateway for your HOST and display routing table.
+8. Trace the route to google.com.
