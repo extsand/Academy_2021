@@ -39,6 +39,7 @@ auto eth0
 # 5. Check VM2 and VM3 for gaining access to DNS server (naming services).
 ping google.com
 dig google.com
+nslookup google.com
 
 6. ***Using the scheme which follows, configure dynamic routing using OSPF protocol.
 #See more http://linuxshare.ru/docs/HOWTO/lartc-HOWTO/c2925.html

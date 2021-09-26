@@ -107,6 +107,7 @@ ping 216.58.209.14
 # https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1-1.4_Ping.JPG
 
 # 5. Determine, which resource has an IP address 8.8.8.8.
+# https://activedirectorypro.com/use-nslookup-check-dns-records/
 nslookup 8.8.8.8
 
 # 6. Determine, which IP address belongs to resource epam.com, softserveinc.com

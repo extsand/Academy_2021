@@ -1,0 +1,5 @@
+alpha
+betha
+gamma
+delta
+zeta
