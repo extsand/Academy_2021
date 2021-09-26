@@ -198,7 +198,7 @@ nohup #grab SIGHUP and redirect to nohup.out
 ### clear
 ### ls 
 # SCREENSHOT HERE 
-# https://github.com/extsand/Academy_2021/blob/linux_1/img/Linux-1_Task_5.3_P2.1-Powershell.jpg
+# https://github.com/extsand/Academy_2021/blob/linux_1/img/img-linux_1/Linux-1_Task_5.3_P2.1-Powershell.jpg
 
 
 
@@ -238,4 +238,4 @@ ssh -R remote_port:localhost:local_port ssh_server_hostname     # set remove for
 # 5*. Intercept (capture) traffic (tcpdump, wireshark) while authorizing the remote client on the
 # server using ssh, telnet, rlogin. Analyze the result . 
 ## SSH Examlpe
-# https://github.com/extsand/Academy_2021/blob/linux_1/img/Linux-1_Task_5.3_P2.5-Wireshark.jpg
+# https://github.com/extsand/Academy_2021/blob/linux_1/img/img-linux_1/Linux-1_Task_5.3_P2.5-Wireshark.jpg

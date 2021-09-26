@@ -17,6 +17,8 @@ echo 'Networking tasks'
 #|VM-2|
 #
 
+
+#1. EXTENDED APPROACH
 sudo lshw -C network #Check network devices
 sudo nano /etc/network/interfaces # create network
 #====================================
@@ -58,9 +60,11 @@ iface eth0 inet static
 	broadcast 192.168.59.255
 
 # Algorius Net Viewer - for network images
-# see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/Networking_Task1_1.jpg
+# see network map: https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1-extended_approach.jpg
 
 
+#Classical exercise
+# see config: https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1_ip.jpg.jpg
 sudo nano /etc/network/interfaces
 ====== Host VM ======
 auto eth0
@@ -85,13 +89,8 @@ iface eth0 inet static
 	dns-nameserver 8.8.8.8
 
 
-# Set 
-
-
-
-
-2. VM2 has one interface (internal), VM1 has 2 interfaces (NAT and internal). Configure all network
-interfaces in order to make VM2 has an access to the Internet (iptables, forward, masquerade).
+# 2. VM2 has one interface (internal), VM1 has 2 interfaces (NAT and internal). Configure all network
+# interfaces in order to make VM2 has an access to the Internet (iptables, forward, masquerade).
 
 echo 'net.ipv4.ip_forward = 1' >>/etc/sysctl.conf; sysctl -p
 iptables -t nat -A POSTROUTING -s 192.168.0.0/24 ! -d 192.168.0.0/24 -j MASQUERADE
@@ -99,9 +98,26 @@ iptables -t mangle -A FORWARD -p tcp -m tcp --tcp-flags RST,SYN SYN -j TCPMSS --
 iptables-save >/etc/iptables.conf
 
 
-3. Check the route from VM2 to Host.
-4. Check the access to the Internet, (just ping, for example, 8.8.8.8).
-5. Determine, which resource has an IP address 8.8.8.8.
-6. Determine, which IP address belongs to resource epam.com.
-7. Determine the default gateway for your HOST and display routing table.
-8. Trace the route to google.com.
+# 3. Check the route from VM2 to Host.
+# https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1-1.3_Route.jpg
+
+
+# 4. Check the access to the Internet, (just ping, for example, 8.8.8.8).
+ping 216.58.209.14
+# https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1-1.4_Ping.JPG
+
+# 5. Determine, which resource has an IP address 8.8.8.8.
+nslookup 8.8.8.8
+
+# 6. Determine, which IP address belongs to resource epam.com, softserveinc.com
+host epam.com
+# 3.214.134.159
+host softserveinc.com
+# 45.60.63.61
+
+# 7. Determine the default gateway for your HOST and display routing table.
+sudo ip route 
+ip route
+
+# 8. Trace the route to google.com
+traceroute google.com
