@@ -99,7 +99,7 @@ iptables-save >/etc/iptables.conf
 
 
 # 3. Check the route from VM2 to Host.
-# https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1-1.3_Route.jpg
+traceroute 10.0.5.1
 
 
 # 4. Check the access to the Internet, (just ping, for example, 8.8.8.8).
