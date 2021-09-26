@@ -64,7 +64,7 @@ iface eth0 inet static
 
 
 #Classical exercise
-# see config: https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1_ip.jpg.jpg
+# see config: https://github.com/extsand/Academy_2021/blob/linux_1/img/img-networking/Networking_Task1_1_ip.jpg
 sudo nano /etc/network/interfaces
 ====== Host VM ======
 auto eth0
