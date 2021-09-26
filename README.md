@@ -19,11 +19,15 @@
 ### Linux Networking
 - Add task_1 - see in branch
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/networking_task1.sh
-    <br>- include ping, traceroute, netstat, route, host, tcpdump, iptables.
+    <br>- include ping, traceroute, netstat, route, host, tcpdump, iptables, dig
 		<br>- iptables notes https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/iptables_notes.sh
 
 - Add task_2 - see in branch
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/2.linux.networking/networking_task2.sh
+    <br>- include DHCP, dnsmasq, dig, OSPF, Zebra - dynamic routing
+   
+### Linux Bash
+- Add task_1 - see in branch
+    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/bash_task.sh
     <br>- processing ...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
-   
