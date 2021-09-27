@@ -6,3 +6,6 @@
 
 #Case operators
 #https://www.opennet.ru/docs/RUS/bash_scripting_guide/x5210.html
+
+#Logical operations in GREP
+# https://blog.xsk.in/it/logicheskie-operatsii-v-grep/289

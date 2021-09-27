@@ -1,12 +1,120 @@
 #!/bin/bash
 
-
-
 file="apache_logs.txt"
 
-# function botInfo(){
-    
+#From which ip were the most requests?
+function mostRequestIp(){
+    file_out=file_buffer
+    # echo $file_out
+    grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" $1 | sort | uniq -c | sort -gr > $file_out
+    {
+        read line1
+    } < $file_out
+     echo '---------------------------'
+    echo 'Most request IP is: '
+    echo $line1
+}
 
+# What is the most requested page?
+function mostRequestPage(){
+    file_out=file_buffer
+    awk '{print $7}' $1 | sort | uniq -c | sort -gr > $file_out
+    {
+        read line
+    } < $file_out
+     echo '---------------------------'
+    echo 'Most request Page is:'
+    echo $line
+}
+# How many requests were there from each ip?
+function howManyRequestFromEachIP(){
+    file_out=file_buffer
+    awk '{print $1}' $1 | sort | uniq -c | sort -gr > $file_out
+    echo '---------------------------'
+    echo 'Count of requests from IP: '
+    while read line
+        do
+            echo $line
+    done < $file_out
+   
+}
+
+#What non-existent pages were clients referred to?
+function nonExistPages(){
+    file_out=file_buffer
+    awk '{print $7}' $1 | sort | uniq -c | sort -gr | grep error404 > $file_out
+    {
+        read line
+    } < $file_out
+    echo '---------------------------'
+    echo 'Request to non-exist pages is:'
+    echo $line
+}
+
+# What time did site get the most requests?
+function mostRequestTime(){
+    file_out=file_buffer
+    awk '{print $4}' $1 | sort | uniq -c | sort -gr > $file_out
+    {
+        read line
+    } < $file_out
+    echo '---------------------------'
+    echo 'The most requests time is:'
+    echo $line   
+}
+
+# What search bots have accessed the site? (UA + IP)
+function showSearchBots(){
+    file_out=file_buffer
+    awk '{print $14}' $1 | sort | uniq -c | grep -E 'bot|Bot' | sed 's/.$//' > $file_out
+    echo '---------------------------'
+    echo 'Search bot is: '  
+    while read line
+        do
+            echo $line
+    done < $file_out
+}
+
+
+function renderUI(){
+    echo -e "---------------------"
+    echo -e "Script 2 - Analise Apache log \n"
+    echo -e "You will type one of parameters:"
+
+    select key in "Most requesr IP" "Most request page" "How many requests were there from each ip" "What non-existent pages were clients referred to?" "What time did site get the most request?" "What search bots have accessed the site? UA + IP" "Exit";
+        do
+            case $key in
+                "Most requesr IP") mostRequestIp $1;;
+                "Most request page") mostRequestPage $1;;
+                "How many requests were there from each ip") howManyRequestFromEachIP $1;;
+                "What non-existent pages were clients referred to?") nonExistPages $1;;
+                "What time did site get the most request?") mostRequestTime $1;;
+                "What search bots have accessed the site? UA + IP") showSearchBots $1;; 
+                "Exit") break;;
+                *) echo 'You value is not correct!';;
+            esac
+    done      
+}   
+
+renderUI $file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#============================ NOTES ================
+
+# function botInfo(){
 #     if [ "CPU" != "$1" ] && [ "Linux" != "$1" ] && [ "Android" != "$1" ]
 #         then
 #             if [[ $1 == *"bot"* ]]
@@ -15,30 +123,7 @@ file="apache_logs.txt"
 #                 then echo ''                    
 #             fi
 #     fi
-   
-
-
-
 # }   
-
-function mostRequestIp(){
-    file_out=$file
-    grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" $1 | sort | uniq -c | sort -gr > $file_out
-    {
-        read line1
-    } < $file_out
-    echo $line1
-}
-
-
-function mostRequestPage(){
-    file_out=$1
-    awk '{print $7}' $1 | sort | uniq -c | sort -gr > $file_out
-    {
-        read line
-    } < $file_out
-    echo $line
-}
 
 
 # function parseData(){
@@ -66,38 +151,47 @@ function mostRequestPage(){
 #         parseData $line
 #     done < $1
 # }
-
-# fileReader $file
-
-
 # data=$(fileReader $file)
 # echo $data
-
-
 # parseData $data
 
-function renderUI(){
-    echo -e "Script 2 - Analise Apache log \n"
-    echo -e "You will type one of parameters:"
-    echo -e "1 - Most request IP"
-    echo -e "2 - Most request page"
-    echo -e "3 - How many requests were there from each ip"
-    echo -e "4 - What non-existent pages were clients referred to?"
-    echo -e "5 - What time did site get the most request?"
-    echo -e "6 - What search bots have accessed the site? UA + IP"
-    
-    read key
-    echo -e "---------------------"
-    case "$key" in
-        "1") echo 'Most request IP:'
-                mostRequestIp;;
-                
-        # "2") echo 'Most request page:'
-        #         mostRequestPage $file ;;
-    esac
 
 
 
-}
+# function renderUI(){
+#     echo -e "---------------------"
+#     echo -e "Script 2 - Analise Apache log \n"
+#     echo -e "You will type one of parameters:"
+#     echo -e "1 - Most request IP"
+#     echo -e "2 - Most request page"
+#     echo -e "3 - How many requests were there from each ip"
+#     echo -e "4 - What non-existent pages were clients referred to?"
+#     echo -e "5 - What time did site get the most request?"
+#     echo -e "6 - What search bots have accessed the site? UA + IP"
+#     echo -e "q - for Exit"
+#     read key
+#     echo -e "---------------------"
+   
+#     case "$key" in
+#         "1") mostRequestIp $1;;
+#         "2") mostRequestPage $1;;
+#         "3") howManyRequestFromEachIP $1;;
+#         "4") nonExistPages $1;;
+#         "5") mostRequestTime $1;;
+#         "6") showSearchBots $1;; 
+                 
+#     esac
 
-# renderUI 
+# }
+
+
+# function interactiveApp(){
+#     key=0 
+#     while [ $key != "q" ]
+#         do 
+#             renderUI $1 
+#     done
+# }
+
+
+# interactiveApp $file
