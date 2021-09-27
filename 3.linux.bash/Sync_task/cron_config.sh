@@ -1,3 +1,7 @@
+# Crontab generator
+# https://crontab-generator.org/
+
+
 sudo chmod +x script_name.sh
 
 #make dir with file
