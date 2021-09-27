@@ -1,9 +1,9 @@
 sudo chmod +x script_name.sh
 
-#make dir witn file
+#make dir with file
 sudo mkdir /home/crontab
 
-#create file
+#create file tasks
 sudo nano /home/crontab/crontab_event
 
 #setting in file
