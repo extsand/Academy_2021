@@ -18,8 +18,13 @@ SHELL=/bin/bash
 #add command to crontab
 sudo crontab /home/crontab/crontab_event
 
+
 #show crontab
 sudo crontab -l
 
 #clear crontab
 sudo crontab -r 
+
+#edit crontab
+sudo crontab -e
+
