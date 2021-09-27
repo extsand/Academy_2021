@@ -71,8 +71,7 @@ function showSearchBots(){
 }
 
 
-showSearchBots $file
-
+# showSearchBots $file
 # mostRequestTime $file
 # nonExistPages $file
 # howManyRequestFromEachIP $file

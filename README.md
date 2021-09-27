@@ -28,6 +28,6 @@
    
 ### Linux Bash
 - Add task_1 - see in branch
-    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/bash_task.sh
+    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/
     <br>- processing ...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)

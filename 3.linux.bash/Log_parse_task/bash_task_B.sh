@@ -10,7 +10,7 @@ function mostRequestIp(){
     {
         read line1
     } < $file_out
-     echo '---------------------------'
+    echo '---------------------------'
     echo 'Most request IP is: '
     echo $line1
 }
@@ -80,6 +80,7 @@ function renderUI(){
     echo -e "---------------------"
     echo -e "Script 2 - Analise Apache log \n"
     echo -e "You will type one of parameters:"
+   
 
     select key in "Most requesr IP" "Most request page" "How many requests were there from each ip" "What non-existent pages were clients referred to?" "What time did site get the most request?" "What search bots have accessed the site? UA + IP" "Exit";
         do
