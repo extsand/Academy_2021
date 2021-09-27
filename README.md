@@ -28,6 +28,23 @@
    
 ### Linux Bash
 - Add task_1 - see in branch
-    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/
-    <br>- processing ...
+    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Ip_potr_task/bash_task_A.sh
+    <br>- include grep, TCP ports, func Arg
+    
+- Add task_2 - see in branch
+    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Log_parse_task/bash_task_B.sh
+    <br>- include log analysis, grep, awk, file read, functions
+        <br>- Apache log example https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Log_parse_task/apache_logs.txt
+    
+- Add task_3 - see in branch
+    <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Sync_task/bash_task_C.sh
+    <br>- include backup, rm, cp, sync, log maker, cron
+        <br>- Crontab notes https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Sync_task/cron_config.sh
+
+
+
+
+### CI/CD
+    <br>- in progress...
+
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
