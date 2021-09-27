@@ -20,8 +20,6 @@
     <br>- processing...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
    
-<<<<<<< HEAD
-=======
 ### Linux Bash
 - Add task_1 - see in branch
     <br>https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Ip_potr_task/bash_task_A.sh
@@ -38,9 +36,6 @@
         <br>- Crontab notes https://github.com/extsand/Academy_2021/blob/linux_1/3.linux.bash/Sync_task/cron_config.sh
 
 
-
-
 ### CI/CD
 - in progress...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
->>>>>>> 122779b (add bash scripts)
