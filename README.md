@@ -45,6 +45,5 @@
 
 
 ### CI/CD
-    <br>- in progress...
-
+- in progress...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
