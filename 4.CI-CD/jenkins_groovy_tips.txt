@@ -1,0 +1,19 @@
+
+# Clean build status and counter
+
+println('Clear Result')
+job = Jenkins.instance.getItemByFullName("git_to-vm_local")
+job.getBuilds().each{
+  if(it.result == Result.FAILURE){
+    it.delete()
+  }
+}
+
+print('Reset build status')
+job.builds.each(){ build -> 
+  build.delete()
+	
+}
+
+print('Reset build number')
+job.updateNextBuildNumber(1)
