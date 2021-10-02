@@ -7,8 +7,7 @@ pipeline {
         OWNER = "extsand"
         GIT_REPO = "https://github.com/extsand/Simple.app"
         AWS_INSTANCE = "http://18.159.124.211"
-        AWS_USERNAME = "ec2-user"
-        AWS_PATH_TO_SSH_KEY = "/home/alpha/.ssh/jenkins_academy_AWS-Source.pem"
+     
         
     }
 
@@ -18,6 +17,8 @@ pipeline {
                 echo "Hello Users"
                 echo "It is ${PROJECT} project "
                 echo "We use pipeline ${DESCRIPTIONS}"
+             
+                
             }
         }
         stage('Clone Git Repository'){
@@ -28,7 +29,7 @@ pipeline {
                 url: 'git@github.com:extsand/Simple.app.git'
             }
         }
-        stage('SSH transfer') {
+        stage('Publish over SSH') {
             steps {
                 sshPublisher(
                     publishers: [
@@ -58,6 +59,11 @@ pipeline {
                 )
             }
         }
-        
+        stage('Complete deploy'){
+            steps{
+                echo "Deploy was complete"
+                echo "${AWS_INSTANCE}"
+            }
+        }
     }
 }
