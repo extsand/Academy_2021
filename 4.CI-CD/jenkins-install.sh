@@ -21,7 +21,36 @@ sudo service jenkins status
 # admin password for reset
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
+#==============================================
+# AWS-instance
+# More about
+# https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#configure-jenkins
 
+sudo yum update 
+# sudo yum install openjdk-8-jre #Important!+
+# sudo apt-get install openjdk-11-jre
+sudo amazon-linux-extras install java-openjdk11
+sudo yum install java-1.8.0-openjdk
+java -version
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo yum install epel-release java-11-openjdk-devel
+
+#if we have error
+sudo amazon-linux-extras install epel
+# sudo yum install epel-release -y  
+sudo yum install daemonize -y  
+
+
+sudo yum install jenkins
+sudo systemctl daemon-reload
+
+
+# admin password for reset
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 sudo chmod -r g+wget
 #SSH Settings
@@ -82,7 +111,9 @@ ssh -vT git@github.com
 # Jenkins Publish Over SSH
 # ** - copy all files and directories 
 # Check Disable exec - in SSH settingr
-
+# important settings  .ssh - chmod 700
+											# ssh_key - chmod 600
+#Folder 
 
 
 

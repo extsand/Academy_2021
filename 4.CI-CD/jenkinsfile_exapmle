@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+    
+    environment {
+        PROJECT = "Simple.app"
+        DESCRIPTIONS = "GitHub -> Jenkins -> AWS"
+        OWNER = "extsand"
+        GIT_REPO = "https://github.com/extsand/Simple.app"
+        AWS_INSTANCE = "http://18.159.124.211"
+        AWS_USERNAME = "ec2-user"
+        AWS_PATH_TO_SSH_KEY = "/home/alpha/.ssh/jenkins_academy_AWS-Source.pem"
+        
+    }
+
+    stages {
+        stage('Introducting') {
+            steps {
+                echo "Hello Users"
+                echo "It is ${PROJECT} project "
+                echo "We use pipeline ${DESCRIPTIONS}"
+            }
+        }
+        stage('Clone Git Repository'){
+            steps {
+                echo "Get app files from ${GIT_REPO}"
+                git branch: 'main', 
+                credentialsId: 'extsand_git_credentials', 
+                url: 'git@github.com:extsand/Simple.app.git'
+            }
+        }
+        stage('SSH transfer') {
+            steps {
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'AWS_18.159.124.211', 
+                            transfers: [
+                                sshTransfer(
+                                    cleanRemote: false, 
+                                    excludes: '', 
+                                    execCommand: 'sudo service httpd restart', 
+                                    execTimeout: 120000, 
+                                    flatten: false, 
+                                    makeEmptyDirs: false, 
+                                    noDefaultExcludes: false, 
+                                    patternSeparator: '[, ]+', 
+                                    remoteDirectory: '', 
+                                    remoteDirectorySDF: false, 
+                                    removePrefix: '', 
+                                    sourceFiles: '**'
+                                    )
+                            ], 
+                            usePromotionTimestamp: false, 
+                            useWorkspaceInPromotion: false, 
+                            verbose: false
+                        )
+                    ]
+                )
+            }
+        }
+        
+    }
+}
