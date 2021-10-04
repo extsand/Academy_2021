@@ -1,7 +1,7 @@
 FROM ubuntu
 MAINTAINER Extsand <extsand@extsand.com>
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update\
 		&& apt-get install apache2
 
 COPY ./page.app /var/www/html/
