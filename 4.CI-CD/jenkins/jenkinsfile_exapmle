@@ -1,5 +1,8 @@
 pipeline {
     agent any
+		// agent {
+		// 	label: python
+		// }
     
     environment {
         PROJECT = "Simple.app"
@@ -64,6 +67,20 @@ pipeline {
                 echo "Deploy was complete"
                 echo "${AWS_INSTANCE}"
             }
+        }
+        stage('Notification to Telegram'){
+            steps{
+                telegramSend(
+                    message: 'Build is Done! Look at ${AWS_INSTANCE}',
+                    chatId: 340034025
+                )
+            }
+        }
+    }
+    post {
+        success {
+            echo '=====================DEPLOY SUCCESS==================='
+            telegramSend(message: 'From Jenkins')
         }
     }
 }

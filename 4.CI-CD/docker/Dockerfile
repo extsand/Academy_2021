@@ -1,0 +1,13 @@
+FROM ubuntu
+MAINTAINER Extsand <extsand@extsand.com>
+
+RUN apt-get update && apt-get install -y \
+		&& apt-get install apache2
+
+COPY ./page.app /var/www/html/
+EXPOSE 5000
+
+CMD [ "sudo service apache2 restart"]
+
+
+
