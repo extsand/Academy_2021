@@ -2,7 +2,8 @@
 # full ubuntu image don't neccessary
 # We can use only aimed images for our purpose
 # example
-#FROM httpd:2.4
+#FROM httpd:2.4 
+#
 
 
 FROM ubuntu
