@@ -6,6 +6,8 @@ sudo service jenkins stop
 sudo apt-get remove --purge jenkins
 
 #install Jenkins to linux server
+#If we have error with apt install
+sudo apt install ca-certificates
 
 sudo apt-get update 
 sudo apt-get install openjdk-8-jre #Important!
