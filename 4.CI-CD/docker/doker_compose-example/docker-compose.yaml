@@ -1,0 +1,34 @@
+# MariaDB
+# https://hub.docker.com/_/mariadb
+
+version: '3.1'
+
+services:
+
+#Container
+#name service
+  db:
+    ## image from folder
+    build: ./db
+    ## image from dockerhub
+    # image: mariadb
+    ## no || on-failure || always
+    restart: always
+    ## .env
+    ## |---- MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    volumes:
+      ## real storage : container storage
+      - ./databases:/var/lib/mysql
+
+
+#Container
+  adminer:
+    build: ./adminer
+    # image: adminer
+    restart: always
+    ports:
+      #local:container
+      - 9191:8080
+#Container

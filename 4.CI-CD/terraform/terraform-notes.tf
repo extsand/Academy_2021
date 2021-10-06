@@ -6,6 +6,7 @@
 # Security Groups
 # 
 # Basic part
+# more https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 # Set credentials:
 # Method 1
 provider "aws" {
