@@ -10,6 +10,7 @@ pipeline {
         OWNER = "extsand"
         GIT_REPO = "https://github.com/extsand/Simple.app"
         AWS_INSTANCE = "http://18.159.124.211"
+				
      
         
     }
