@@ -7,8 +7,14 @@ services:
 #Container
 #name service
   db:
-    image: mariadb
+    ## image from folder
+    build: ./db
+    ## image from dockerhub
+    # image: mariadb
+    ## no || on-failure || always
     restart: always
+    ## .env
+    ## |---- MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     environment:
       MYSQL_ROOT_PASSWORD: 12345
     volumes:
@@ -18,9 +24,13 @@ services:
 
 #Container
   adminer:
-    image: adminer
+    build: ./adminer
+    # image: adminer
     restart: always
     ports:
       #local:container
       - 9191:8080
-
+      #depends from database
+    depends_on:
+      - db 
+#Container
