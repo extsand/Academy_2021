@@ -22,6 +22,8 @@ sudo usermod -aG docker $USER
 #Test docker
 sudo docker run hello-world
 
-
+# Clear all
+# more https://nuancesprog.ru/p/9730/
+docker system prune -a
 
 
