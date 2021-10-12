@@ -69,7 +69,7 @@ CMD ["python", "/usr/src/app/app.py"]
 
 
 #=========================================================
-
+#Python 3
 FROM alpine:3.11
 
 WORKDIR /usr/src/app
