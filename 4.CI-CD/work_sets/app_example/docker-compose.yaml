@@ -1,0 +1,47 @@
+# https://codebeautify.org/yaml-validator
+#.env add to docker-compose to default
+## if you have ersonal environment for container 
+## you can use: env_
+# app:
+#   images: image:v1
+#   env_file:
+#     - my_personal_env
+
+version: '3.1'
+services:
+
+  app:
+    image: extsand/terra.weather_docker
+    ports:
+      - ${APP_PORT}:5000
+    restart: always
+    depends_on: 
+      - mongodb
+    
+   
+  mongodb:
+    image: mongo
+    ports:
+      - ${DB_MONGO_PORT}:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_MONGO_PASSWORD}
+    volumes:
+      - ${DB_STORAGE}:/data/db
+    restart: always
+ 
+     
+  mongo-express:
+    image: mongo-express
+    ports:
+     - ${ME_PORT}:8081
+    environment:
+     ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_MONGO_USER}
+     ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_MONGO_PASSWORD}
+     ME_CONFIG_MONGODB_SERVER: ${ME_CONFIG_MONGODB_SERVER}
+    restart: always
+    #important for db
+    depends_on:
+      - mongodb
+    # env_file:
+    #   - .env
