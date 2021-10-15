@@ -45,5 +45,22 @@
 
 
 ### CI/CD
+- AWS
+  <br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/aws
+
+- Jenkins
+  <br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/jenkins
+
+- Docker
+  <br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/docker
+
+- Terraform
+	<br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/terraform
+
+- Working sets
+	<br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/work_sets
+
+
+
 - in progress...
     ![animation](https://github.com/extsand/Academy_2021/blob/linux_1/img/loading.gif)
