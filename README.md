@@ -57,6 +57,9 @@
 - Terraform
 	<br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/terraform
 
+- Env
+	<br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/env
+
 - Working sets
 	<br> https://github.com/extsand/Academy_2021/tree/linux_1/4.CI-CD/work_sets
 
