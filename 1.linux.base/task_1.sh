@@ -1,4 +1,5 @@
 #!/bin/bash
+grep -iRl "Text for search" /directory/where_is_find
 
 echo 'Task 1'
 user='username is....'
