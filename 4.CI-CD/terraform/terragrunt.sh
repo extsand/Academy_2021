@@ -16,4 +16,14 @@ mv terragrunt /usr/local/bin/terragrunt
 mkdir terraform
 add PATH to env.var
 
+#Basic commands
+terragrunt run-all init
+									 plan
+									 apply
+									 destroy
+									 console file(...)
+								           template(...)
+								           exit
+									 show
 
+									 
