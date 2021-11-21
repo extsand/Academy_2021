@@ -26,3 +26,8 @@ gitk --all &
 
 #chaining command to push
 git add .; git commit -m 'add file'; git push
+
+
+#How to cancel git commit
+# more https://www.freecodecamp.org/news/how-to-undo-a-git-add/
+git reset
