@@ -42,9 +42,10 @@ _italic too_
 ```
 code block
 ```
-```php
-//php code
-$foo = new BarClass();
+
+```python
+#python code here
+variable = "welcome"
 ```
 
 ## Изображение
@@ -55,4 +56,4 @@ $foo = new BarClass();
 
 изображение без центрирования
 <br>
-![alt text](https://avatars2.githubusercontent.com/u/11632545?v=3&s=200)
+![alt text](https://avatars.githubusercontent.com/u/12978591?v=4)
