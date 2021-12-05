@@ -11,6 +11,8 @@ unset TF_VAR_git_token
 #get os version
 cat /etc/*-release
 
+lsb_release -r
+
 #See symbols in file
 cat -e -t -v Makefile 
 
