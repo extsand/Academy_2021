@@ -21,10 +21,10 @@ echo $MY_VAR
 # 2. Env User layer
 # aliase also here
 ~/.bashrc
-export MY_USER_VAR='env_user_var'
+export MY_USER_VAR=env_user_var
 
 # 3. Env Session Login User layer
-export SESSION_VAR='session_var_is_11234'
+export SESSION_VAR=session_var_is_11234
 
 # 4. Env App layer
 
