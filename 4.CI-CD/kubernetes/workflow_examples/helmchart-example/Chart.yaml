@@ -1,0 +1,16 @@
+apiVersion: v2
+name: App-HelmChart
+description: HelmChart Example for Kubernetes
+type: application
+version: 0.1.0      #helm chart version
+appVersion: "0.1.0" #app version
+
+keywords:
+  - apache
+  - httpd
+  - example
+
+maintainers:
+  - name: Krotek
+    email: example@gmail.com
+    url: krotek.click

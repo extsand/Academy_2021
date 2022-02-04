@@ -1,0 +1,6 @@
+#Default values for HelmChart
+
+container:
+  image: 530117518858.dkr.ecr.eu-central-1.amazonaws.com/blue-app-dev:latest
+
+replicaCount: 2

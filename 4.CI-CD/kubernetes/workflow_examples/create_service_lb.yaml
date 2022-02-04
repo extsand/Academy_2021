@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kt-deploy
+  labels:
+    app: blue-app-label #Service look to this pods labels
+
+spec:
+# Create replicas
+  replicas: 2
+  selector:
+    matchLabels:
+      project: example-prj
+# Create template for pods
+#Important - set project labels
+#It's connection for pods and services
+  template:
+    metadata:
+      labels:
+        project: example-prj
+#Create pods with images
+    spec:
+      containers:
+        - name: blue-app
+          image: 530117518858.dkr.ecr.eu-central-1.amazonaws.com/blue-app-dev:latest
+          ports:
+            - containerPort: 80
+---
+# Create Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-pod-service
+  labels:
+    env: dev
+    owner: Krotek
+
+spec:
+  type: LoadBalancer
+#Connection with service and pods
+  selector:
+    project: example-prj #select pods with this labels
+  ports:
+    - name: app-listener
+      protocol: TCP
+      port: 80 #port on loadBalancer
+      targetPort: 80 #port on pod
+  

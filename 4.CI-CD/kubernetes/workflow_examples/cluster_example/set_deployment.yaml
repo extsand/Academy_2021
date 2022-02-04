@@ -1,0 +1,86 @@
+#create Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deploy
+  labels:
+    app: blue-app
+
+spec:
+  replicas: 2 #create replica set
+  selector:   #select for project labels
+    matchLabels:
+      project: example-app-project
+  template:  #basic template for project
+    metadata:
+      labels:
+        project: example-app-project
+
+    spec:
+      containers:
+        - name: blue-app
+          image: 530117518858.dkr.ecr.eu-central-1.amazonaws.com/blue-app-dev:latest
+          ports:
+            - containerPort: 80
+
+
+---
+#create Autoscaling
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app-autoscaling
+
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v2beta1v1
+    kind: Deployment
+    name: example-deploy
+  
+  minReplicas: 1
+  maxReplicas: 4
+
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 65
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: 80
+
+---
+# #create Service LoadBalancer
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: lb-blue-app
+#   labels:
+#     env: dev
+#     owner: Krotek
+
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     project: example-app-project
+#   ports:
+#   - name: app-listener
+#     protocol: TCP
+#     port: 80 #port for loadBalancer
+#     tagretPort: 80 #port for pods inside
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

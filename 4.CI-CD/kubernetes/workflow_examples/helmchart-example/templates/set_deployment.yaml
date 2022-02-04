@@ -1,0 +1,24 @@
+#exapmle for deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Release.Name }}-example-deployment
+    labels:
+        app: {{ .Release.Name }}-blue-app-deployment
+
+spec:
+    replicas: {{ .Values.replicaCount }}
+    selector:
+        matchLabels:
+            project: {{ .Release.Name }}-blue-project
+    template:
+        metadata:
+            labels:
+                project: {{ .Release.Name }}-blue-project
+        
+        spec:
+            containers:
+                - name: {{ .Release.Name }}-blue-app
+                  image: {{ .Values.container.image }}
+                  ports:
+                    - containerPort: 80

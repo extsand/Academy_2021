@@ -1,0 +1,19 @@
+#example for service
+#LoadBalancer, and other
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Release.Name }}-service
+    labels:
+        env: dev
+        owner: Krotek
+
+spec:
+    type: LoadBalancer
+    selector:
+        project: {{ .Release.Name }}-blue-project
+    ports:
+        - name: {{ .Release.Name }}-blue-project-listener
+          protocol: TCP
+          port: 80
+          targetPort: 80

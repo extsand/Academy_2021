@@ -1,0 +1,49 @@
+#Ingress rules for Coutour ingress Controller
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-hosts
+
+spec:
+  rules:
+# Classic ingress routing
+    - host: www.hostname.com
+      http: 
+        paths:
+          - backend:
+              serviceName: 0-service_name_with_cluster_ip
+              servicePort: 80
+
+    - host: www.w1-hostname.com
+      http: 
+        paths:
+          - backend:
+              serviceName: 2-service_name_with_cluster_ip
+              servicePort: 80
+
+    - host: www.w2-hostname.com
+      http: 
+        paths:
+          - backend:
+              serviceName: 1-service_name_with_cluster_ip
+              servicePort: 80
+
+
+#Custom pages
+    - host: www.custom-page.com
+      http:
+        paths:
+          - path: "/custom/page1"
+            backend:
+              serviceName: custom_service_name_ip
+              servicePort: 80
+
+          - path: "/custom/page2"
+            backend:
+              serviceName: 2_custom_service_name_ip
+              servicePort: 80
+
+          - path: "/custom/page3"
+            backend:
+              serviceName: 3_custom_service_name_ip
+              servicePort: 80

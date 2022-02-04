@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kt-deploy
+  labels:
+    app: blue-app-deploy
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: blue-example
+
+  template:
+    metadata:
+      labels:
+        project: blue-example
+    
+    spec:
+      containers:
+        - name: blue-app
+          image: 530117518858.dkr.ecr.eu-central-1.amazonaws.com/blue-app-dev:latest
+          ports:
+            - containerPort: 80
+        
+        - name: tomcat-app
+          image: tomcat:8.5.38
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: multi-pods-service
+  labels: 
+    env: dev
+    owner: Krotek
+
+spec:
+  type: LoadBalancer
+  selector:
+    project: blue-example
+  ports:
+    - name: blue-app-listener
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    
+    - name: tomcat-app-listener
+      protocol: TCP
+      port: 8989
+      targetPort: 8080
+
+
+
+
+
+
+
+
+

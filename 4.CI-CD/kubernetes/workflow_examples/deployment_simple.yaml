@@ -1,0 +1,51 @@
+# Create deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+  labels:
+    app: blue-app
+    env: demo
+    owner : Krotek
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      project: example
+  
+  template:
+    metadata:
+      labels:
+        project: example
+
+    spec:
+      containers:
+        - name: blue-app
+          image: 530117518858.dkr.ecr.eu-central-1.amazonaws.com/blue-app-dev:latest
+          ports:
+            - containerPort: 80
+
+---
+# Create autoscaling
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: example-autoscaling
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v2beta1v1
+    kind: Deployment
+    name: example-deployment
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource: 
+      name: cpu
+      targetAverageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageUtilization: 80

@@ -1,0 +1,24 @@
+#create Ingress Rules
+#Coutour ingress Controller
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-for-app
+
+spec:
+  rules:
+    - host: www.hostname.com
+      http:
+        paths: 
+          - backend:
+              serviceName: example-deploy
+              servicePort: 80
+    
+    - host: www.custom-page.com
+      http:
+        paths:
+          - path: "/custom/page1"
+            backend:
+              serviceName: example-deploy
+              servicePort: 80

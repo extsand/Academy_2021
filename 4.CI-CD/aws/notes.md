@@ -8,14 +8,12 @@ AWS Elastic Container Service -> AWS Cluster -> Fargate
 AWS IAM
 AWS Codebuild
 
-
 AWS Route53
-
 
 AWS Simple Storage Service (S3)
 AWS DynamoDB
 AWS Elastic Beanstalk
 
-
 AWS System Manager
 AWS Parameter Store - see example on ./aws/env_example
+AWS RDS
