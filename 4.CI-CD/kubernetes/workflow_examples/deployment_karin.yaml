@@ -64,13 +64,18 @@ spec:
         volumeMount:              # mount volumes with data from configmap
         - name: config
           mountPath: /etc/nginx/conf.d/
-        - name: podinfo           #set storage for values from manifest
+        - name: podinfo           # set storage for values from manifest
           mountPath: /etc/podinfo
-
-      volumes:                    # grab data from configmap to volumes 
-      - name: config
+        - name: data-storage-inside-host # set storage inside node
+          mountPath: /files  
+        - name: data-to-empty-dir
+          mountPath: /fd
+        
+      volumes:                   
+      - name: config              # grab data from configmap to volumes 
         configMap:
           name: my-configmap-env-with-file
+      
       - name: podinfo             # grab and save data from   manifest to file
         downwardAPI:
           items:
@@ -78,8 +83,15 @@ spec:
               fieldRef:
                 fieldPath: metadata.labels
             - path: "annotation"
-            fieldRef:
-              fieldPath: metadata.annotation                
+              fieldRef:
+                fieldPath: metadata.annotation   
+      
+      - name: data-storage-inside-host                 # add path to file inside node - VULNERABILITY ISSUE !!!
+        hostPath:                  # will not use!   
+          path: /data_pod
+      
+      - name: data-to-empty-dir  # temporary storage inside node
+        emptyDir: {}
 
 
         #Probs for application:
