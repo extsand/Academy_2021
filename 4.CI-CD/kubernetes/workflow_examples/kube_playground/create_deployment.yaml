@@ -1,0 +1,77 @@
+#Deployment for httpd app
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krotek-deployment
+  labels:
+    app: blue-app
+    owner: Krotek
+    type: example
+
+# basic spec
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: blue-project
+
+# Update Strategy
+  strategy:
+    rollingUpdate:
+      maxSurge: 1        # 1 pod per time
+      maxUnavaliable: 1  # max count of replica for one time
+    type: RollingUpdate
+
+  # Templates
+  template:
+    metadata:
+      labels:
+        project: blue-project
+        app: blue-app
+    # Container definition  
+    spec:
+      containers:
+        - image: httpd:latest
+          name: blue-app
+          ports: 
+            - containerPort: 80
+          env:
+            - name: APP_username
+              value: Krotek
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100mi
+          # Probs
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          
+          livenessProbe:
+            faulureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            initialDelaySeconds: 10
+
+            
+          
+          
+
+          
+
+    
+
+

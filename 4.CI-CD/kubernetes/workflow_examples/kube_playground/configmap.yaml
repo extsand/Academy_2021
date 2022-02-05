@@ -1,0 +1,12 @@
+# Configmap for example
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-for-playground
+data:
+  CM_name: krotek
+  CM_pass: 249324erddv+-v
+  CM_token: 12klclclclcllclsdfsdf
+
+  
+

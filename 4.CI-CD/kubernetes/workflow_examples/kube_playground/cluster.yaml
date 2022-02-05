@@ -1,0 +1,24 @@
+#Create EKS ClusterConfig
+# t2.micro EC2
+# https://eksctl.io/usage/creating-and-managing-clusters/
+
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: krotek-cluster
+  region: eu-central-1
+  labels:
+    type: example
+
+nodeGroups:
+  - name: krotek-node
+    instanceType: t2.micro
+    desiredCapacity: 2
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["audit", "authenticator"]
+
+    
+

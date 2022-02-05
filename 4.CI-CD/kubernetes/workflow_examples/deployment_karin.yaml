@@ -1,0 +1,192 @@
+#Example of Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: exm-deployment
+  onwner: Krotek
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+      projects: exm-project
+
+# Strategy for update app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1        # max count of replics in update time
+      maxUnavaliable: 1  # max count of replics for one time update (simultaneous update)
+    type: RollingUpdate  # Type of update - RollingUpdate - soft-update. Recreate - hard-update
+
+#Pods Example
+  template:
+    metadata:
+    labels:
+      app: my-app
+      project: exm-project
+    spec:
+      containers:
+      - image: httpd:latest
+        name: Apache-app
+        ports:                          # set container/pod ports
+        - containerPort: 80
+        # SET ENVIRONMENTS:
+        # BASIC
+        env:                            # set env variables
+        - name: APP_USERNAME            # current variable set
+          value: best_username_ever
+
+        #ENV from manifest yaml
+        - name: __POD_NAME              # set env from yaml manifest
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name  # grab pod name
+        
+        - name: __NODE_IP               
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP   # grab node ip
+        
+        #ENV from k8s Secrets
+        - name: MY_SECRET_1     # new name of secret env
+          valueFrom:            # grab aim secret from k8s Secrets
+            secretKeyRef:
+              name: name_of_secret
+              key: name_of_key-from-name_of_secret
+
+        #ENV from ConfigMap
+        envFrom:                 # grab values from configMap manifest
+        - configMapRef:          
+          name: my-configmap-env      
+        #ENV from file
+        # mount configmap like file
+        volumeMount:              # mount volumes with data from configmap
+        - name: config
+          mountPath: /etc/nginx/conf.d/
+        - name: podinfo           #set storage for values from manifest
+          mountPath: /etc/podinfo
+
+      volumes:                    # grab data from configmap to volumes 
+      - name: config
+        configMap:
+          name: my-configmap-env-with-file
+      - name: podinfo             # grab and save data from   manifest to file
+        downwardAPI:
+          items:
+            - path: "labels"
+              fieldRef:
+                fieldPath: metadata.labels
+            - path: "annotation"
+            fieldRef:
+              fieldPath: metadata.annotation                
+
+
+        #Probs for application:
+        readinessProbe:          # check the app for ready status. Delete app if it doesn't receive traffic
+          faulureThreshold: 3    # step for checking
+          httpGet:               # example curl Get. also exist: "exec, tcpSocket"
+            path: /
+            port: 80
+          periodSeconds: 10      # time for checking period
+          successThreshold: 1    # counter for success
+          timeoutSeconds: 1      # timeout for app answer
+        
+        livenessProbe:         # watch for app working. Restart if app fail
+          faulureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+          initialDelaySeconds: 10  # time for a check after the app was started
+
+## Example Probs with exec
+        # livenessProbe:         # watch for app working. Restart if app fail
+        #   faulureThreshold: 3
+        #   exec:
+        #     command:
+        #     - cat               # command
+        #     - /tmp/healthy-file # file 
+        #   periodSeconds: 10
+        #   successThreshold: 1
+        #   timeoutSeconds: 1
+        #   initialDelaySeconds: 10  # time for a check after the app was started
+
+## Example Probs with tcpSocket
+        # readinessProbe:          # check the app for ready status. Delete app if it doesn't receive traffic
+        #   faulureThreshold: 3    # step for checking
+        #   tcpSocket:
+        #     port: 8080
+        #   periodSeconds: 10      # time for checking period
+        #   successThreshold: 1    # counter for success
+        #   timeoutSeconds: 1      # timeout for app answer
+        
+        # livenessProbe:         # watch for app working. Restart if app fail
+        #   faulureThreshold: 3
+        #   tcpSocket:
+        #     port: 8080
+        #   periodSeconds: 30
+        #   successThreshold: 1
+        #   timeoutSeconds: 1
+        #   initialDelaySeconds: 15  # time for a check after the app was started
+
+# Resource limits 
+        resources:
+          requests:         # resources for pod
+            cpu: 50m        # 50 miliCPU's; 1000mCPU = 1CPU = 1
+            memory: 100Mi   # 100mi - 100 Mb
+          limits:           # max resources for pod
+            cpu: 100m
+            memory: 100mi
+
+
+
+# ConfigMap - configuration of k8s cluster_example
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap-env
+data:
+  app_user: bestUserEver
+  app_password: kdm3242,clsdf
+  git_token: 342lksadfasf
+
+
+
+# Configmap with files
+# TLS sertificats, passwords and other data from file
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap-env-with-file
+data:
+  # file
+  configfile.conf: |
+    server=10.10.10.1/24
+    some text here
+  # another file
+  default.config: | 
+    server {
+      listen 80 def_server;
+      serv_name _;
+      location / {
+        return 200 '$hostname'
+      }
+    }
+
+
+#Secrets - create Secrets for application
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: name-of-secret
+stringData:
+  name: value
+  username: best_username_ever
+  passwords: 34234lkdsf
+

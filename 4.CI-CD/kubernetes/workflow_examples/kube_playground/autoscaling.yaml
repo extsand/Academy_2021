@@ -1,0 +1,27 @@
+#Autoscaling for deployment
+
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: blue-app-autoscaling
+
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v2beta1v1
+    kind: Deployment
+    name: krotek-deployment
+
+  minReplicas: 1
+  maxReplicas: 4
+
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 20
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: 30
+        
+    
