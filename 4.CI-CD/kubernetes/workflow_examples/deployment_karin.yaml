@@ -26,6 +26,15 @@ spec:
       app: my-app
       project: exm-project
     spec:
+
+      initContainers:             # container for preload settings 
+      - image: busubox            # before start main container
+        name: preload-container
+        command: ["sh", "-c", "chmod 777 /data"]
+        volumeMounts:             # mount volume. working with volumes
+        - name: data-for-pvc 
+          mountPath: /data-for-pvc 
+            
       containers:
       - image: httpd:latest
         name: Apache-app
@@ -70,6 +79,8 @@ spec:
           mountPath: /files  
         - name: data-to-empty-dir
           mountPath: /fd
+        - name: data-for-pvc  # set columes for PVC
+          mount: /data-for-pvc
         
       volumes:                   
       - name: config              # grab data from configmap to volumes 
@@ -93,6 +104,9 @@ spec:
       - name: data-to-empty-dir  # temporary storage inside node
         emptyDir: {}
 
+      - name: data-for-pvc      # pvc for pods/container
+        persistentVolumeClaim:
+          claimName: fileshare-pvc
 
         #Probs for application:
         readinessProbe:          # check the app for ready status. Delete app if it doesn't receive traffic
@@ -202,3 +216,18 @@ stringData:
   username: best_username_ever
   passwords: 34234lkdsf
 
+
+#PVC - Storage for pods
+#Persistent Volume Claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fileshare-pvc
+spec:
+  storageClassName: csi-cept-hdd-ms1 #autame or custom inside cluster
+  accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Mi
